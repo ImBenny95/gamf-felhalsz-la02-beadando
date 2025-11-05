@@ -1,0 +1,30 @@
+server {
+    listen 80;
+    server_name _;
+
+    root /var/www;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+    # Proxy a belső API-hoz
+    location /api/ {
+        proxy_pass http://IPADDRESS:5000/api/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+
+    # Statikus fájlok
+    location /static/ {
+        alias /var/www/static/;
+    }
+
+    location /js/ {
+        alias /var/www/js/;
+    }
+}
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <title>Uptime Monitor Dashboard</title>
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <h1>Uptime Monitor</h1>
+
+    <div id="loginDiv" class="container">
+        <h2>Bejelentkezés</h2>
+        <input type="text" id="username" placeholder="Felhasználónév"><br><br>
+        <input type="password" id="password" placeholder="Jelszó"><br><br>
+        <button id="loginBtn">Belépés</button>
+        <p id="loginError" class="error"></p>
+    </div>
+
+    <div id="dashboardDiv" class="hidden container">
+        <h2>Dashboard</h2>
+        <button id="logoutBtn" class="secondary-btn">Kijelentkezés</button>
+
+        <div id="addSiteDiv">
+            <h3>Új weboldal hozzáadása</h3>
+            <input type="text" id="newSiteName" placeholder="Oldal neve">
+            <input type="text" id="newSiteUrl" placeholder="Oldal URL">
+            <button id="addSiteBtn">HozzĂˇadĂˇs</button>
+            <p id="addSiteError" class="error"></p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Név</th>
+                    <th>URL</th>
+                    <th>Állapot</th>
+                    <th>Utolsó ellenőrzés</th>
+                    <th>Down since</th>
+                    <th>Művelet</th>
+                </tr>
+            </thead>
+            <tbody id="sitesTable"></tbody>
+        </table>
+    </div>
+
+    <script src="js/api.js"></script>
+    <script src="js/dashboard.js"></script>
+
+    <footer>
+        NJE GAMF 2025 - Mérnökinformatikus Bsc - Felhő alapú szolgáltatások beadandó<br>
+        Készítette: <br>
+        Pál Bence (GHXXQA) | Kálmán Béla (LB0RE5) | Andó Ákos (D84EJM)
+    </footer>
+</body>
+</html>
